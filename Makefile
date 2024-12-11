@@ -484,6 +484,7 @@ format-and-pytest:
 .PHONY: kaji
 kaji:
 	code ./keyboards/crkbd/keymaps/koei_kaji/keymap.c
+	code ./keyboards/crkbd/rev4_1/custom_config.h
 
 .PHONY: compile
 compile:
