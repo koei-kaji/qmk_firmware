@@ -9,12 +9,17 @@ enum layers {
     L_SYM,  // symbol
 };
 
+enum my_keycodes {
+    LNG1_G = SAFE_RANGE,
+    LNG2_H,
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_BSE] = LAYOUT_split_3x6_3_ex2(
   //,----------------------------------------------------------------------------------------------------------------------.  ,----------------------------------------------------------------------------------------------------------------------.
               XXXXXXX,            KC_Q,            KC_W,            KC_E,            KC_R,            KC_T,         XXXXXXX,            XXXXXXX,            KC_Y,            KC_U,            KC_I,            KC_O,            KC_P,         XXXXXXX,
   //|----------------+----------------+----------------+----------------+----------------+----------------+----------------|  |----------------+----------------+----------------+----------------+----------------+----------------+----------------|
-              XXXXXXX,    LCMD_T(KC_A),    LOPT_T(KC_S),    LCTL_T(KC_D),    LSFT_T(KC_F),            KC_G,         KC_LNG1,            KC_LNG2,            KC_H,    RSFT_T(KC_J),    RCTL_T(KC_K),    ROPT_T(KC_L),  RCMD_T(KC_TAB),         XXXXXXX,
+              XXXXXXX,    LCMD_T(KC_A),    LOPT_T(KC_S),    LCTL_T(KC_D),    LSFT_T(KC_F),          LNG1_G,         XXXXXXX,            XXXXXXX,          LNG2_H,    RSFT_T(KC_J),    RCTL_T(KC_K),    ROPT_T(KC_L),  RCMD_T(KC_TAB),         XXXXXXX,
   //|----------------+----------------+----------------+----------------+----------------+----------------+----------------'  `----------------+----------------+----------------+----------------+----------------+----------------+----------------|
               XXXXXXX,            KC_Z,    ROPT_T(KC_X),            KC_C,            KC_V,            KC_B,                                                 KC_N,            KC_M,         KC_COMM,  LOPT_T(KC_DOT),         KC_SLSH,         XXXXXXX,
   //|----------------+----------------+----------------+----------------+----------------+----------------+----------------.  ,----------------+----------------+----------------+----------------+----------------+----------------+----------------|
@@ -25,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----------------------------------------------------------------------------------------------------------------------.  ,----------------------------------------------------------------------------------------------------------------------.
               XXXXXXX,         QK_BOOT,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,            XXXXXXX,         XXXXXXX,      RCMD(KC_V),      RCMD(KC_C),      RCMD(KC_X),      RCMD(KC_Z),         XXXXXXX,
   //|----------------+----------------+----------------+----------------+----------------+----------------+----------------|  |----------------+----------------+----------------+----------------+----------------+----------------+----------------|
-              XXXXXXX,         KC_LCMD,         KC_LOPT,         KC_LCTL,         KC_LSFT,         XXXXXXX,         _______,            _______,         KC_LEFT,         KC_DOWN,           KC_UP,         KC_RGHT,         XXXXXXX,         XXXXXXX,
+              XXXXXXX,         KC_LCMD,         KC_LOPT,         KC_LCTL,         KC_LSFT,         XXXXXXX,         XXXXXXX,            XXXXXXX,         KC_LEFT,         KC_DOWN,           KC_UP,         KC_RGHT,         XXXXXXX,         XXXXXXX,
   //|----------------+----------------+----------------+----------------+----------------+----------------+----------------'  `----------------+----------------+----------------+----------------+----------------+----------------+----------------|
               XXXXXXX,         XXXXXXX,         KC_ROPT,         XXXXXXX,         XXXXXXX,         XXXXXXX,                                              KC_HOME,         KC_PGDN,         KC_PGUP,          KC_END,         XXXXXXX,         XXXXXXX,
   //|----------------+----------------+----------------+----------------+----------------+----------------+----------------.  ,----------------+----------------+----------------+----------------+----------------+----------------+----------------|
@@ -36,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----------------------------------------------------------------------------------------------------------------------.  ,----------------------------------------------------------------------------------------------------------------------.
               XXXXXXX,         QK_BOOT,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,         XXXXXXX,            XXXXXXX,         XXXXXXX,      RCMD(KC_V),      RCMD(KC_C),      RCMD(KC_X),      RCMD(KC_Z),         XXXXXXX,
   //|----------------+----------------+----------------+----------------+----------------+----------------+----------------|  |----------------+----------------+----------------+----------------+----------------+----------------+----------------|
-              XXXXXXX,         KC_LCMD,         KC_LOPT,         KC_LCTL,         KC_LSFT,         XXXXXXX,         _______,            _______,         MS_LEFT,         MS_DOWN,           MS_UP,         MS_RGHT,         XXXXXXX,         XXXXXXX,
+              XXXXXXX,         KC_LCMD,         KC_LOPT,         KC_LCTL,         KC_LSFT,         XXXXXXX,         XXXXXXX,            XXXXXXX,         MS_LEFT,         MS_DOWN,           MS_UP,         MS_RGHT,         XXXXXXX,         XXXXXXX,
   //|----------------+----------------+----------------+----------------+----------------+----------------+----------------'  `----------------+----------------+----------------+----------------+----------------+----------------+----------------|
               XXXXXXX,         XXXXXXX,         KC_ROPT,         XXXXXXX,         XXXXXXX,         XXXXXXX,                                              MS_WHLL,         MS_WHLD,         MS_WHLU,         MS_WHLR,         XXXXXXX,         XXXXXXX,
   //|----------------+----------------+----------------+----------------+----------------+----------------+----------------.  ,----------------+----------------+----------------+----------------+----------------+----------------+----------------|
@@ -47,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,--------------------------------------------------------------.  ,--------------------------------------------------------------.
       XXXXXXX, QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_LCMD, KC_LOPT, KC_LCTL, KC_LSFT, XXXXXXX, _______,    _______, KC_MPRV, KC_VOLU, KC_VOLD, KC_MNXT, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_LCMD, KC_LOPT, KC_LCTL, KC_LSFT, XXXXXXX, XXXXXXX,    XXXXXXX, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------'  `--------+--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, KC_ROPT, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------.  ,--------+--------+--------+--------+--------+--------+--------|
@@ -58,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,--------------------------------------------------------------.  ,--------------------------------------------------------------.
       XXXXXXX, KC_LBRC,   KC_P7,   KC_P8,   KC_P9, KC_RBRC, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_SCLN,   KC_P4,   KC_P5,   KC_P6,  KC_EQL, _______,    _______, KC_RSFT, KC_RCTL, KC_ROPT, KC_RCMD, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_SCLN,   KC_P4,   KC_P5,   KC_P6,  KC_EQL, XXXXXXX,    XXXXXXX, XXXXXXX, KC_RSFT, KC_RCTL, KC_ROPT, KC_RCMD, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------'  `--------+--------+--------+--------+--------+--------+--------|
       XXXXXXX,  KC_GRV,   KC_P1,   KC_P2,   KC_P3, KC_BSLS,                      XXXXXXX, XXXXXXX, KC_LOPT, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------.  ,--------+--------+--------+--------+--------+--------+--------|
@@ -69,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,--------------------------------------------------------------.  ,--------------------------------------------------------------.
       XXXXXXX, KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, KC_RCBR, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_COLN,  KC_DLR, KC_PERC, KC_CIRC, KC_PLUS, _______,    _______, KC_RSFT, KC_RCTL, KC_ROPT, KC_RCMD, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_COLN,  KC_DLR, KC_PERC, KC_CIRC, KC_PLUS, XXXXXXX,    XXXXXXX, XXXXXXX, KC_RSFT, KC_RCTL, KC_ROPT, KC_RCMD, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------'  `--------+--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_TILD, KC_EXLM,   KC_AT, KC_HASH, KC_PIPE,                      XXXXXXX, XXXXXXX, KC_LOPT, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------.  ,--------+--------+--------+--------+--------+--------+--------|
@@ -88,3 +93,34 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
   [L_SYM] = { ENCODER_CCW_CW(RGB_MOD, RGB_RMOD), ENCODER_CCW_CW(RGB_HUI, RGB_HUD), ENCODER_CCW_CW(RGB_VAI, RGB_VAD), ENCODER_CCW_CW(RGB_SAI, RGB_SAD), },
 };
 #endif
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    static uint16_t hold_timer;
+    switch (keycode) {
+        case LNG1_G:
+            if (record->event.pressed) {
+                hold_timer = timer_read();
+            } else {
+                if (timer_elapsed(hold_timer) < TAPPING_TERM) {
+                    tap_code(KC_G);
+                } else {
+                    tap_code(KC_LNG1);
+                }
+            }
+            return false;
+        case LNG2_H:
+            if (record->event.pressed) {
+                hold_timer = timer_read();
+            } else {
+                if (timer_elapsed(hold_timer) < TAPPING_TERM) {
+                    tap_code(KC_H);
+                } else {
+                    tap_code(KC_LNG2);
+                }
+            }
+            return false;
+        default:
+            return true;
+    }
+    return true;
+}
