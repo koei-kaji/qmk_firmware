@@ -489,3 +489,4 @@ kaji:
 .PHONY: compile
 compile:
 	qmk compile
+	open .
