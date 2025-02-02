@@ -10,15 +10,7 @@ enum layers {
 };
 
 enum my_tapdance {
-    TD_G_LNG1,
-    TD_H_LNG2,
-    TD_V_ESC,
-};
-
-tap_dance_action_t tap_dance_actions[] = {
-    [TD_G_LNG1] = ACTION_TAP_DANCE_DOUBLE(KC_G, KC_LNG1),
-    [TD_H_LNG2] = ACTION_TAP_DANCE_DOUBLE(KC_H, KC_LNG2),
-    [TD_V_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_V, KC_ESC),
+    V_ESC,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -26,9 +18,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----------------------------------------------------------------------------------------------------------------------.  ,----------------------------------------------------------------------------------------------------------------------.
               XXXXXXX,            KC_Q,            KC_W,            KC_E,            KC_R,            KC_T,         XXXXXXX,            XXXXXXX,            KC_Y,            KC_U,            KC_I,            KC_O,            KC_P,         XXXXXXX,
   //|----------------+----------------+----------------+----------------+----------------+----------------+----------------|  |----------------+----------------+----------------+----------------+----------------+----------------+----------------|
-              XXXXXXX,    LCMD_T(KC_A),    LOPT_T(KC_S),    LCTL_T(KC_D),    LSFT_T(KC_F),   TD(TD_G_LNG1),         XXXXXXX,            XXXXXXX,   TD(TD_H_LNG2),    RSFT_T(KC_J),    RCTL_T(KC_K),    ROPT_T(KC_L),  RCMD_T(KC_TAB),         XXXXXXX,
+              XXXXXXX,    LCMD_T(KC_A),    LOPT_T(KC_S),    LCTL_T(KC_D),    LSFT_T(KC_F),            KC_G,         XXXXXXX,            XXXXXXX,            KC_H,    RSFT_T(KC_J),    RCTL_T(KC_K),    ROPT_T(KC_L),  RCMD_T(KC_TAB),         XXXXXXX,
   //|----------------+----------------+----------------+----------------+----------------+----------------+----------------'  `----------------+----------------+----------------+----------------+----------------+----------------+----------------|
-              XXXXXXX,            KC_Z,    ROPT_T(KC_X),            KC_C,    TD(TD_V_ESC),            KC_B,                                                 KC_N,            KC_M,         KC_COMM,  LOPT_T(KC_DOT),         KC_SLSH,         XXXXXXX,
+              XXXXXXX,            KC_Z,    ROPT_T(KC_X),            KC_C,       TD(V_ESC),            KC_B,                                                 KC_N,            KC_M,         KC_COMM,  LOPT_T(KC_DOT),         KC_SLSH,         XXXXXXX,
   //|----------------+----------------+----------------+----------------+----------------+----------------+----------------.  ,----------------+----------------+----------------+----------------+----------------+----------------+----------------|
                                                                                 MO(L_MDA),LT(L_NAV,KC_SPC),LT(L_MSE,KC_TAB),   LT(L_SYM,KC_ENT),LT(L_NUM,KC_BSPC),         KC_DEL
                                                                       //`--------------------------------------------------'  `--------------------------------------------------'
@@ -99,4 +91,8 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
   [L_NUM] = { ENCODER_CCW_CW(RGB_MOD, RGB_RMOD), ENCODER_CCW_CW(RGB_HUI, RGB_HUD), ENCODER_CCW_CW(RGB_VAI, RGB_VAD), ENCODER_CCW_CW(RGB_SAI, RGB_SAD), },
   [L_SYM] = { ENCODER_CCW_CW(RGB_MOD, RGB_RMOD), ENCODER_CCW_CW(RGB_HUI, RGB_HUD), ENCODER_CCW_CW(RGB_VAI, RGB_VAD), ENCODER_CCW_CW(RGB_SAI, RGB_SAD), },
 };
+
 #endif
+tap_dance_action_t tap_dance_actions[] = {
+    [V_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_V, KC_ESC),
+};
