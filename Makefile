@@ -115,7 +115,7 @@ endef
 TRY_TO_MATCH_RULE_FROM_LIST = $(eval $(call TRY_TO_MATCH_RULE_FROM_LIST_HELPER,$1))$(RULE_FOUND)
 
 # As TRY_TO_MATCH_RULE_FROM_LIST_HELPER, but with additional
-# resolution of DEFAULT_FOLDER and keyboard_aliases.hjson for provided rule 
+# resolution of DEFAULT_FOLDER and keyboard_aliases.hjson for provided rule
 define TRY_TO_MATCH_RULE_FROM_LIST_HELPER_KB
     # Split on ":", padding with empty strings to avoid indexing issues
     TOKEN1:=$$(shell python3 -c "import sys; print((sys.argv[1].split(':',1)+[''])[0])" $$(RULE))
@@ -502,3 +502,22 @@ kaji:
 compile:
 	qmk compile
 	open .
+
+.PHONY: fetch
+fetch:
+	# master ブランチと upstream を同期
+	git checkout master
+	git fetch upstream
+	git merge upstream/master
+	git submodule update --init --recursive
+	git submodule foreach --recursive git clean -fd
+	git submodule foreach --recursive git reset --hard
+	git submodule deinit -f --all
+	git submodule update --init --recursive
+	git push origin master
+
+    # koei-kaji ブランチを更新
+	git checkout koei-kaji
+	git merge master
+	git submodule update --init --recursive
+	git push origin koei-kaji
